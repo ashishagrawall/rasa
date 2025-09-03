@@ -14,6 +14,8 @@ intents:
   - search_data
   - count_records
   - get_specific_record
+  - show_tables
+  - table_info
 
 entities:
   - table_name
@@ -49,6 +51,24 @@ slots:
     mappings:
     - type: from_entity
       entity: record_id
+  
+  last_query:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  
+  last_sql:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  
+  last_tables:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
 
 responses:
   utter_greet:
@@ -85,6 +105,10 @@ actions:
   - action_search_records
   - action_count_records
   - action_get_specific_record
+  - action_process_natural_query
+  - action_explain_query
+  - action_get_schema_suggestions
+  - action_smart_search
 
 session_config:
   session_expiration_time: 60

@@ -36,3 +36,28 @@ rules:
   steps:
   - intent: get_specific_record
   - action: action_get_specific_record
+
+- rule: Show all tables
+  steps:
+  - intent: show_tables
+  - action: action_get_table_info
+
+- rule: Show table information
+  steps:
+  - intent: table_info
+  - action: action_get_table_info
+
+- rule: Process natural language queries
+  steps:
+  - intent: ask_database
+  - action: action_process_natural_query
+
+- rule: Handle smart search
+  steps:
+  - intent: search_data
+  - action: action_smart_search
+
+- rule: Explain query processing
+  steps:
+  - intent: bot_challenge
+  - action: action_explain_query

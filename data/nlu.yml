@@ -161,3 +161,24 @@ nlu:
     - get entry with id [100](record_id)
     - show record id [555](record_id)
     - fetch record [999](record_id)
+
+- intent: show_tables
+  examples: |
+    - show me all tables
+    - what tables are available
+    - list all tables
+    - show database tables
+    - what tables do you have
+    - display all tables
+    - get table list
+    - show me the database structure
+
+- intent: table_info
+  examples: |
+    - tell me about [users](table_name) table
+    - what columns does [products](table_name) have
+    - describe [orders](table_name) table
+    - show [customers](table_name) table structure
+    - what's in [inventory](table_name) table
+    - table info for [sales](table_name)
+    - details about [employees](table_name)
