@@ -1,0 +1,163 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yes please
+    - absolutely
+    - sure
+    - right
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - not interested
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - what are you?
+    - who are you?
+
+- intent: ask_database
+  examples: |
+    - can you query the database
+    - I need data from database
+    - show me database information
+    - access the database
+    - query my data
+    - get data from tables
+    - database query
+    - search database
+    - look up in database
+
+- intent: query_table
+  examples: |
+    - show me data from [users](table_name) table
+    - get records from [products](table_name)
+    - query [orders](table_name) table
+    - I want to see [customers](table_name) data
+    - show [inventory](table_name) table
+    - get all records from [employees](table_name)
+    - display [sales](table_name) table data
+    - fetch from [transactions](table_name)
+
+- intent: get_records
+  examples: |
+    - get all records
+    - show me all data
+    - fetch all entries
+    - display all records
+    - get everything
+    - show complete data
+    - list all records
+    - give me all entries
+
+- intent: search_data
+  examples: |
+    - find records where [name](column_name) is [john](search_value)
+    - search for [email](column_name) containing [gmail](search_value)
+    - look for [status](column_name) equals [active](search_value)
+    - find [price](column_name) greater than [100](search_value)
+    - search [category](column_name) like [electronics](search_value)
+    - get records with [age](column_name) between [25](search_value) and [35](search_value)
+    - find where [city](column_name) is [new york](search_value)
+
+- intent: count_records
+  examples: |
+    - how many records are there
+    - count all entries
+    - total number of records
+    - how many rows
+    - count records in table
+    - give me the count
+    - total entries
+    - number of records
+
+- intent: get_specific_record
+  examples: |
+    - get record with id [123](record_id)
+    - show me record [456](record_id)
+    - find record number [789](record_id)
+    - get entry with id [100](record_id)
+    - show record id [555](record_id)
+    - fetch record [999](record_id)

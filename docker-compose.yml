@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  rasa:
+    build: .
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./models:/app/models
+      - ./.env:/app/.env
+    environment:
+      - RASA_LOG_LEVEL=INFO
+    depends_on:
+      - actions
+    command: rasa run --enable-api --cors "*" --port 5005
+
+  actions:
+    build: .
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./.env:/app/.env
+    environment:
+      - RASA_LOG_LEVEL=INFO
+    command: rasa run actions --port 5055
+
+  # Optional: Add database services
+  # postgres:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_DB: chatbot_db
+  #     POSTGRES_USER: chatbot_user
+  #     POSTGRES_PASSWORD: chatbot_pass
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+
+# volumes:
+#   postgres_data:

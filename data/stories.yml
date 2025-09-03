@@ -1,0 +1,63 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: database query flow
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: query_table
+    entities:
+    - table_name: "users"
+  - action: action_query_database
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: search data flow
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: search_data
+    entities:
+    - table_name: "products"
+    - column_name: "name"
+    - search_value: "laptop"
+  - action: action_search_records
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: count records flow
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: count_records
+  - action: action_count_records
+  - intent: goodbye
+  - action: utter_goodbye

@@ -1,0 +1,91 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_database
+  - query_table
+  - get_records
+  - search_data
+  - count_records
+  - get_specific_record
+
+entities:
+  - table_name
+  - column_name
+  - search_value
+  - record_id
+
+slots:
+  table_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: table_name
+  
+  column_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: column_name
+  
+  search_value:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: search_value
+  
+  record_id:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: record_id
+
+responses:
+  utter_greet:
+  - text: "Hey! How can I help you with your database today?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa and connected to your database."
+
+  utter_ask_table:
+  - text: "Which table would you like me to query?"
+
+  utter_ask_search_criteria:
+  - text: "What would you like to search for?"
+
+  utter_database_error:
+  - text: "Sorry, I encountered an error while accessing the database. Please try again."
+
+actions:
+  - action_query_database
+  - action_get_table_info
+  - action_search_records
+  - action_count_records
+  - action_get_specific_record
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

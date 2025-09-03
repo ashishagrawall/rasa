@@ -1,0 +1,38 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Ask for table name when user wants to query database
+  steps:
+  - intent: ask_database
+  - action: utter_ask_table
+
+- rule: Handle database queries with table name
+  steps:
+  - intent: query_table
+  - action: action_query_database
+
+- rule: Handle search requests
+  steps:
+  - intent: search_data
+  - action: action_search_records
+
+- rule: Handle count requests
+  steps:
+  - intent: count_records
+  - action: action_count_records
+
+- rule: Handle specific record requests
+  steps:
+  - intent: get_specific_record
+  - action: action_get_specific_record
